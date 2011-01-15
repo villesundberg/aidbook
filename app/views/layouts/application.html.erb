@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0px; padding: 0px }
+    #map_canvas { height: 100% }
+  </style>
+
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false">  </script>
+  <title>AidGarage</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body onload="initialize()">
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<h1>Listing projects</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.name %></td>
+    <td><%= link_to 'Show', project %></td>
+    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project', new_project_path %>
+
+<script type="text/javascript">
+  function initialize() {
+    var latlng = new google.maps.LatLng(-27.587724593115762, 151.96510595703126);
+    var myOptions = {
+      zoom: 8,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+    <% @project_markers.each do |latLng, title| %>
+      var myLatlng = new google.maps.LatLng(<%= latLng %>);
+      var marker = new google.maps.Marker({
+            position: myLatlng,
+            title: "<%= title %>"
+        });
+      marker.setMap(map);  
+    <% end %>
+    google.maps.event.addListener(map, 'click', function(event) {
+/*      document.getElementById("project_name").value = event.latLng.toString(); */
+    });
+  }
+</script>
+<div id="map_canvas" style="width:80%; height:80%"></div>
+
