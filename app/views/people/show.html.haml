@@ -38,6 +38,13 @@
         = hidden_field_tag :friend_id, friend.id
         = f.submit "Add"
 
+  %h3 Friend feed
+  %ul
+    - @friend_feed.each do |status|
+      %img{:src => status.person.img_url}
+      %li= status.person.name
+      %li= status.status
+
   %h2 Projects
   %ul
     - for project in @person.projects

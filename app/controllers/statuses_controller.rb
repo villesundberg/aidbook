@@ -11,6 +11,7 @@ class StatusesController < ApplicationController
     
   def create
     @status = Status.new(params[:status])
+    @status.time = DateTime.now
     @person = Person.find(params[:status][:person_id])
     @person.statuses << @status
     

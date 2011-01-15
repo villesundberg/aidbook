@@ -21,6 +21,7 @@ end
 class Status
   include Mongoid::Document
   field :status, :type => String
+  field :time, :type => DateTime
   references_one :person
   referenced_in :person, :inverse_of => :statuses
 end

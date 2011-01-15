@@ -16,6 +16,17 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     @status = Status.new(:person_id => @person.id)
     @possible_friends = Person.all.limit(10)
+    @friend_feed = []
+    @person.friends.each do |friend|
+      ap({"friends:" => friend })
+      statuses = Status.where(:person_id => friend).limit(10)
+      statuses.each do |status|
+        ap status
+        @friend_feed.push status
+      end
+    end
+    ap @friend_feed
+    @friend_feed = @friend_feed.sort {|a,b| b.time <=> a.time}[0,10]
 
     respond_to do |format|
       format.html # show.html.erb
