@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+%html
+  %head
+    %title AidBook48
+    = stylesheet_link_tag 'screen'
+    = javascript_include_tag :defaults
+    = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false"
+  %body
+
+    #header-wrap
+      #header
+        %a{:name => "top"}
+        %img{:alt => "slogan", :src => "/images/aidbook/aidbook.png", :style => "margin:10px; background:transparent; border:0 none;"}
+        %img{:alt => "slogan", :src => "/images/aidbook/slogan.png", :style => "margin:10px; background:transparent; border:0 none;"}
+        %p#rss
+          %a{:href => "register.htm"} Login
+
+
+    #content-wrap.clear
+      = yield
+
+    #footer-outer.clear
+      #footer-wrap
+        .msg_list
+          %p.msg_head Who we are....
+          .msg_body
+            We are team aidBook and we want you to participate in helping the world become a better place by using our application :)
