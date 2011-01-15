@@ -1,0 +1,75 @@
+!!! Strict
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %title aid-Book
+    %meta{:content => "application/xhtml+xml; charset=UTF-8", "http-equiv" => "content-type"}/
+    %meta{:content => "Erwin Aligam - styleshout.com", :name => "author"}/
+    %meta{:content => "Site Description Here", :name => "description"}/
+    %meta{:content => "keywords, here", :name => "keywords"}/
+    %meta{:content => "index, follow, noarchive", :name => "robots"}/
+    %meta{:content => "noarchive", :name => "googlebot"}/
+    %link{:href => "css/screen.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "scripts/jquery-1.4.4.js", :type => "text/javascript"}
+    :javascript
+      $(document).ready(function () {
+          //hide the all of the element with class msg_body
+          $(".msg_body").hide();
+          //toggle the componenet with class msg_body
+          $(".msg_head").click(function () {
+              $(this).next(".msg_body").slideToggle(600);
+          });
+      });
+  %body
+    / header
+    #header-wrap
+      #header
+        %a{:name => "top"}
+        %img{:alt => "slogan", :src => "images/aidbook/aidbook.png", :style => "margin:10px; background:transparent; border:0 none;"}/
+        / <h1 id="logo-text"><a href="index.html" title="">aid-Book</a></h1>
+        %img{:alt => "slogan", :src => "images/aidbook/slogan.png", :style => "margin:10px; background:transparent; border:0 none;"}/
+        /
+          <div  id="nav">
+          <ul>
+          <li id="current"><a href="index.html">Home</a></li>
+          <li><a href="style.html">About</a></li>
+          <li><a href="blog.html">Support</a></li>
+          <li><a href="project.htm">Project</a></li>
+          <li><a href="index.html">My Profile</a></li>
+          </ul>
+          </div>
+        /
+          <p id="rss">
+          <a href="register.htm">Login</a>
+          </p>
+        /
+          <table id="logintable" cellpadding="2" cellspacing="2" border="0">
+          <tr>
+          <td>
+          <label>User ID:</label> <input name="UserID" type="text"  id="UserID" size="15"/>
+          </td>
+          <td>
+          <label>Password:</label> <input name="Password" type="password" class="control" id="Password1" size="15"/>
+          </td>
+          </tr>
+          </table>
+        /
+          <form id="quick-search" method="get" action="index.html">
+          <fieldset class="search">
+          <label for="qsearch">Search:</label>
+          <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" />
+          <button class="btn" title="Submit Search">Search</button>
+          </fieldset>
+          </form>
+        / /header
+    / content-outer
+    #content-wrap.clear
+      / sidebar
+      / content
+    / footer-outer
+    #footer-outer.clear
+      #footer-wrap
+        .msg_list
+          %p.msg_head Who we are....
+          .msg_body
+            We are team aidBook and we want you to participate in helping the world become a better place by using our application :)
+    / footer-bottom
