@@ -5,6 +5,9 @@
   <%= @person.name %>
 
   <%= form_for(@status) do |f| %>
+
+     <%= f.hidden_field :person_id %>
+
     <% if @status.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
@@ -28,6 +31,14 @@
 
 </p>
 
+<p>
+  <ul>
+  <% for status in @person.statuses %>
+<li>
 
+  <%= status.status %>
+</li>
+  <% end %>
+</p>
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

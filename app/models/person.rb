@@ -3,6 +3,7 @@ class Person
   field :name, :type => String
   references_many :friends, :class_name => "Person"
   
+  references_many :statuses
   field :last_location, :type => Array  # [Y, X]
 
   index [[ :location, Mongo::GEO2D ]]
