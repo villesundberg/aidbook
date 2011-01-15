@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%p
+  %b 
+    Name:
+  = @project.name
+
+%h2 People
+
+%ul
+  - for person in @project.people
+    %li
+      = link_to person.name, person
+
+%h2 Feed
+%ul
+  - for status in @project.feed
+    %li
+      = link_to status.status, status
+
+= link_to 'Edit', edit_project_path(@project) 
+|
+\#{link_to 'Back', projects_path}
