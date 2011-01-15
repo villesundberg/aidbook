@@ -8,7 +8,9 @@ AidGarage::Application.routes.draw do
     resources :roles
   end
 
-  resources :people
+  resources :people do
+    resources :friends
+  end
 
   resources :statuses
   

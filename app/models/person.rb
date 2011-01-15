@@ -1,6 +1,8 @@
 class Person
   include Mongoid::Document
   field :name, :type => String
+  field :img_url, :type => String
+  
   references_many :friends, :class_name => "Person"
   
   references_many :statuses

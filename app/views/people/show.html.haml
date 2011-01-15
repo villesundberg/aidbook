@@ -1,5 +1,6 @@
 %p#notice= notice
 %p
+  %img{:src => @person.img_url}
   %b Name:
   = @person.name
   %h2 Tweets
@@ -22,6 +23,21 @@
     - for status in @person.statuses
       %li= status.status
 
+  %h2 Friends
+  %ul
+    - @person.friends.each do |friend|
+      %img{:src => friend.img_url}
+      %li= friend.name
+
+  %h3 Possible friends in your projects
+  %ul
+    - @possible_friends.each do |friend|
+      %img{:src => friend.img_url}
+      %li= friend.name
+      - form_for Person.new, :remote => true,  :url => person_friends_path(@person) do |f|
+        = hidden_field_tag :friend_id, friend.id
+        = f.submit "Add"
+
   %h2 Projects
   %ul
     - for project in @person.projects
@@ -36,6 +52,7 @@
           - form_for Role.new, :remote => true,  :url => project_roles_path(project) do |f|
             = hidden_field_tag :person_id, @person.id
             = f.submit "Add"
+
           
 = link_to 'Edit', edit_person_path(@person)
 |
