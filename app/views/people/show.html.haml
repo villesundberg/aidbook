@@ -1,0 +1,42 @@
+%p#notice= notice
+%p
+  %b Name:
+  = @person.name
+  %h2 Tweets
+  = form_for(@status) do |f|
+    = f.hidden_field :person_id
+    - if @status.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@person.errors.count, "error")
+          prohibited this person from being saved:
+        %ul
+          - @person.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      %br/
+      = f.text_field :status
+    .actions
+      = f.submit
+  %ul
+    - for status in @person.statuses
+      %li= status.status
+
+  %h2 Projects
+  %ul
+    - for project in @person.projects
+      %li= project.name
+
+  %h3 Add existing
+  - for project in Project.all
+    - unless @person.projects.include? project
+      %ul
+        %li
+          = project.name
+          - form_for Role.new, :remote => true,  :url => project_roles_path(project) do |f|
+            = hidden_field_tag :person_id, @person.id
+            = f.submit "Add"
+          
+= link_to 'Edit', edit_person_path(@person)
+|
+\#{link_to 'Back', people_path}

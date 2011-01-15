@@ -4,7 +4,9 @@ AidGarage::Application.routes.draw do
   resources :organisations
 
   match 'projects/on_map' => 'projects#on_map'
-  resources :projects
+  resources :projects do
+    resources :roles
+  end
 
   resources :people
 

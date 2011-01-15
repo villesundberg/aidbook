@@ -32,7 +32,7 @@
     var map = new google.maps.Map(document.getElementById("map_canvas"),
         myOptions);
   google.maps.event.addListener(map, 'click', function(event) {
-      document.getElementById("project_name").value = event.latLng.toString();
+      document.getElementById("project_map_point").value = event.latLng.toString();
     });
   }
 </script>

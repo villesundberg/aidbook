@@ -58,9 +58,10 @@ class ProjectsController < ApplicationController
   def create
     ap params[:project]
     ap params[:project][:map_point]
-    params[:project][:map_point] = params[:project][:name].gsub(/[\(\)]/, "").split(',').map {|s| s.to_f}
+    params[:project][:map_point] = params[:project][:map_point].gsub(/[\(\)]/, "").split(',').map {|s| s.to_f}
     ap params[:project]
     @project = Project.new(params[:project])
+
 
     respond_to do |format|
       if @project.save
@@ -78,10 +79,11 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
 
+    
     respond_to do |format|
       ap params[:project]
       ap params[:project][:map_point]
-      params[:project][:map_point] = params[:project][:name].gsub(/[\(\)]/, "").split(',')
+      params[:project][:map_point] = params[:project][:map_point].gsub(/[\(\)]/, "").split(',').map {|s| s.to_f}
       ap params[:project]
       if @project.update_attributes(params[:project])
         format.html { redirect_to(@project, :notice => 'Project was successfully updated.') }

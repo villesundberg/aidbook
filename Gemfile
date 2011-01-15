@@ -12,6 +12,8 @@ gem "bson_ext", "1.1.5"
 
 gem "awesome_print"
 
+gem "haml"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
