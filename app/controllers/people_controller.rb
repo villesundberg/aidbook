@@ -19,7 +19,7 @@ class PeopleController < ApplicationController
     @friend_feed = []
     @person.friends.each do |friend|
       ap({"friends:" => friend })
-      statuses = Status.where(:person_id => friend).limit(10)
+      statuses = Status.where(:person_id => friend._id).limit(10)
       statuses.each do |status|
         ap status
         @friend_feed.push status

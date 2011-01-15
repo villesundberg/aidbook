@@ -42,8 +42,9 @@
   %ul
     - @friend_feed.each do |status|
       %img{:src => status.person.img_url}
-      %li= status.person.name
-      %li= status.status
+      %li
+        = status.person.name
+        = status.status
 
   %h2 Projects
   %ul
