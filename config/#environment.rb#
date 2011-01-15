@@ -5,3 +5,4 @@ require File.expand_path('../application', __FILE__)
 AidGarage::Application.initialize!
 
 config.gem "mongoid"
+
