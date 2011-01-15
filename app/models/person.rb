@@ -3,8 +3,10 @@ class Person
   field :name, :type => String
   references_many :friends, :class_name => "Person"
   
-  references_many :statuses
-  references_many :projects, :inverse_of => :people
+  references_many :statuses, :inverse_of => :person
+
+  references_many :roles
+  
   field :last_location, :type => Array  # [Y, X]
 
   index [[ :last_location, Mongo::GEO2D ]]
@@ -14,14 +16,14 @@ class Status
   include Mongoid::Document
   field :status, :type => String
   references_one :person
-  referenced_in :person
+  referenced_in :person, :inverse_of => :statuses
 end
 
 class Role
   include Mongoid::Document
   field :title, :type => String
-  references_one :person
-  references_one :project
+  referenced_in :person
+  referenced_in :project
 end
 
 

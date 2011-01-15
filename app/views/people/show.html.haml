@@ -22,20 +22,15 @@
     - for status in @person.statuses
       %li= status.status
 
-  %h2 Projects
-  %ul
-    - for project in @person.projects
-      %li= project.name
 
   %h3 Add existing
   - for project in Project.all
-    - unless @person.projects.include? project
-      %ul
-        %li
-          = project.name
-          - form_for Role.new, :remote => true,  :url => project_roles_path(project) do |f|
-            = hidden_field_tag :person_id, @person.id
-            = f.submit "Add"
+    %ul
+      %li
+        = link_to project.name, project
+        - form_for Role.new, :remote => true,  :url => project_roles_path(project) do |f|
+          = hidden_field_tag :person_id, @person.id
+          = f.submit "Add"
           
 = link_to 'Edit', edit_person_path(@person)
 |

@@ -1,14 +1,17 @@
 class RolesController < ApplicationController
 
   def create
+
+    @role = Role.create
+    
     @person = Person.find params[:person_id]
     @project = Project.find params[:project_id]
 
-    @person.projects << @project
-    @project.people << @person
-    
-    @person.save
+    @project.roles << @role
     @project.save
+
+    @person.roles << @role
+    @person.save
     
     respond_to do |format|
       if @person.save && @project.save

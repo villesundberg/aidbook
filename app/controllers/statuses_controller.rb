@@ -1,9 +1,15 @@
 class StatusesController < ApplicationController
 
-  def create
+  def show
+    @status = Status.find params[:id]
 
-    ap params[:status]
+    respond_to do |format|
+      format.html # show.html.haml
+      format.xml  { render :xml => @status }
+    end
+  end
     
+  def create
     @status = Status.new(params[:status])
     @person = Person.find(params[:status][:person_id])
     @person.statuses << @status
