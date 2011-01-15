@@ -1,11 +1,17 @@
 class Person
   include Mongoid::Document
   field :name, :type => String
+  field :img_url, :type => String
+  
   references_many :friends, :class_name => "Person"
   
   references_many :statuses, :inverse_of => :person
 
   references_many :roles
+
+  def projects
+    roles.map{ |r| r.project }
+  end
   
   field :last_location, :type => Array  # [Y, X]
 

@@ -15,6 +15,7 @@ class PeopleController < ApplicationController
   def show
     @person = Person.find(params[:id])
     @status = Status.new(:person_id => @person.id)
+    @possible_friends = Person.all.limit(10)
 
     respond_to do |format|
       format.html # show.html.erb
