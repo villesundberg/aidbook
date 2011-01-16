@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   end
   
   def on_map
-    @projects = Project.all.excludes(:map_point => nil).limit(100)
+    @projects = Project.all.excludes(:map_point => nil)
     i = 0
     @project_markers = @projects.map { |pro| pro.to_marker }
        
