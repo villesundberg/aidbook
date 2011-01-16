@@ -26,13 +26,15 @@
                   = person.title_in(@project)
           / .people
           %a.people-link{:href => "#"} All people &rarr;
-          %h4 Description
-          = @project.description.html_safe
-          %h4 Time
-          %p
-            = "Start in #{@project.readable_beginning}"
-            %br
-            = "End in #{@project.readable_ending}"
+          - if @project.description
+            %h4 Description
+            = @project.description.andand.html_safe
+          - if @project.ending || @project.beginning
+            %h4 Time
+            %p
+              = "Start in #{@project.readable_beginning}"
+              %br
+              = "End in #{@project.readable_ending}"
   / /main
   #sidebar
     - for status in @project.feed
