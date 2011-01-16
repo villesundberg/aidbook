@@ -4,29 +4,28 @@
 <%= link_to 'New Project', new_project_path %>
 <script type="text/javascript">
 
-    var latlng = new google.maps.LatLng(0, 0);
-    var myOptions = {
-      zoom: 2,
+   var latlng = new google.maps.LatLng(0, 0);
+   var myOptions = {
+      zoom: 3,
       center: latlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"),
         myOptions);
 
-	var myLatlng;
-	var marker;
-	var infowindow;
+  var myLatlng;
+  var markers = new Array();
+  var infowindows = new Array();
 
-	
-	
+    <% @project_markers.each_with_index do |marker, index| %>
 
-    <% @project_markers.each do |marker| %>
-    
-    infowindow = new google.maps.InfoWindow({
+    infowindows.push(new google.maps.InfoWindow({
       content: '<%= render :partial => "popup", :locals => {:project => marker[:project]} %>'
-      });
+      }));
+
+
       myLatlng = new google.maps.LatLng(<%= marker[:latlng] %>);
-      marker = new google.maps.Marker({	    
+      markers.push(new google.maps.Marker({	    
             position: myLatlng,
 	    map: map,
 	    past: '<%= marker[:past] %>',
@@ -37,13 +36,11 @@
 	    <% if marker[:future] %>
 	       icon: '/images/maps/future.png',
 	    <% end %>
-        });
+        }));
 
-google.maps.event.addListener(marker, 'click', function() {
-
-				      infowindow.open(map,marker);
-
-		//		      window.location = '<%= project_url(marker[:project]) %>';
+google.maps.event.addListener(markers[<%= index %>], 'click', function() {
+				      infowindows[<%= index %>].open(map,markers[<%= index %>]);
+//				      window.location = '<%= project_url(marker[:project]) %>';
   });
     <% end %>
 </script>
