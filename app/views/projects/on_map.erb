@@ -1,18 +1,18 @@
-<div id="map_canvas" style="width: 100%; height: 650px; background: green"></div>
+<div id="map_canvas" style="width: 100%; height: 550px; background: green"></div>
 
 
-<%= link_to 'New Project', new_project_path %>
 <script type="text/javascript">
 
    var latlng = new google.maps.LatLng(0, 0);
    var myOptions = {
-      zoom: 3,
+      zoom: 4,
       center: latlng,
       mapTypeId: google.maps.MapTypeId.TERRAIN
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"),
         myOptions);
 
+	map.setCenter( new google.maps.LatLng(9.145486,-1.164551));
   var myLatlng;
   var markers = new Array();
   var infowindows = new Array();

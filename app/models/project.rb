@@ -7,6 +7,7 @@ class Project
   field :ending, :type => Date
 
   field :description, :type => String
+  field :country_code, :type => String
   
   references_many :roles
 
@@ -44,8 +45,15 @@ class Project
   end
 
   def nearest
-    Project.all.excludes(:map_point => nil).limit(100)
+    Project.demo
   end
+
+  def self.demo
+
+    # GH,CI,TG,BF,BJ,LR,NG,GN
+    Project.all.where(:country_code => "GH")
+  end
+
   
   index [[ :map_point, Mongo::GEO2D ]]
   

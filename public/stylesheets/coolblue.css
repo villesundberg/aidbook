@@ -1086,3 +1086,8 @@ ul.archive li .post-details a:visited {
 	height:0;
 	content: " ";
 }  
+
+.front-page-footer {
+    text-align: center;
+    color: green;
+}
