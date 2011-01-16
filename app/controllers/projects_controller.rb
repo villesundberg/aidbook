@@ -28,6 +28,9 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 
+    @projects = Project.all.excludes(:map_point => nil).limit(100)
+    @project_markers = @projects.map { |pro| pro.to_marker }
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }

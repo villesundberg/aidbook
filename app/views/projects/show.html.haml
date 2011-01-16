@@ -53,15 +53,5 @@
             %span.tweet-time= "#{rand(50)} minutes ago"
         / #tweet-content
   
-:javascript
-    var latlng = new google.maps.LatLng(0, 0);
-    var myOptions = {
-      zoom: 2,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("map_canvas"),
-        myOptions);
 
-  var myLatlng;
-  var marker;
+= render :partial => "project_map"
