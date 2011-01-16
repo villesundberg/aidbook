@@ -13,15 +13,8 @@ class ProjectsController < ApplicationController
   def on_map
     @projects = Project.all.excludes(:map_point => nil).limit(100)
     i = 0
-    @project_markers = @projects.map do |pro|
-      { 
-        :latlng => pro.map_point.andand.map {|mp| mp.to_s}.join(", "),   
-        :project => pro,
-        :past => pro.past?,
-        :future => pro.future?
-      }
-    end
-    
+    @project_markers = @projects.map { |pro| pro.to_marker }
+       
     ap @project_markers
     
     respond_to do |format|

@@ -33,6 +33,15 @@ class Project
   def readable_ending
     format(ending)
   end
+
+  def to_marker
+      { 
+        :latlng => self.map_point.andand.map {|mp| mp.to_s}.join(", "),   
+        :project => self,
+        :past => self.past?,
+        :future => self.future?
+      }
+  end
   
   index [[ :map_point, Mongo::GEO2D ]]
 
