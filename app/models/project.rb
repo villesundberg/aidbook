@@ -16,7 +16,7 @@ class Project
   end
   
   def feed
-    people.map{|p| p.statuses}.flatten
+    Status.all
   end
 
   def past?
