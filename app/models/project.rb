@@ -51,7 +51,7 @@ class Project
   def self.demo
 
     # GH,CI,TG,BF,BJ,LR,NG,GN
-    Project.all.where(:country_code => "GH")
+    Project.all.where(:country_code => "GH").excludes(:map_point => nil)
   end
 
   
