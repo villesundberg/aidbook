@@ -12,12 +12,17 @@
 	map.setCenter( new google.maps.LatLng(<%= @map_center %>));
 	<% end %>
   var myLatlng;
-  var marker;
+  var markers = new Array();
+  var infowindows = new Array();
 
-    <% @project_markers.each do |marker| %>
+    <% @project_markers.each_with_index do |marker, index| %>
+    infowindows.push(new google.maps.InfoWindow({
+      content: '<%= render :partial => "popup", :locals => {:project => marker[:project]} %>'
+      }));
+
 
       myLatlng = new google.maps.LatLng(<%= marker[:latlng] %>);
-      marker = new google.maps.Marker({	    
+      markers.push(new google.maps.Marker({	    
             position: myLatlng,
 	    map: map,
 	    past: '<%= marker[:past] %>',
@@ -28,10 +33,11 @@
 	    <% if marker[:future] %>
 	       icon: '/images/maps/future.png',
 	    <% end %>
-        });
+        }));
 
-google.maps.event.addListener(marker, 'click', function() {
-				      window.location = '<%= project_url(marker[:project]) %>';
+google.maps.event.addListener(markers[<%= index %>], 'click', function() {
+				      infowindows[<%= index %>].open(map,markers[<%= index %>]);
+//				      window.location = '<%= project_url(marker[:project]) %>';
   });
     <% end %>
 </script>

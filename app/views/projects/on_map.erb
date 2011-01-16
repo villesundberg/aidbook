@@ -15,8 +15,16 @@
 
 	var myLatlng;
 	var marker;
-    <% @project_markers.each do |marker| %>
+	var infowindow;
 
+	
+	
+
+    <% @project_markers.each do |marker| %>
+    
+    infowindow = new google.maps.InfoWindow({
+      content: '<%= render :partial => "popup", :locals => {:project => marker[:project]} %>'
+      });
       myLatlng = new google.maps.LatLng(<%= marker[:latlng] %>);
       marker = new google.maps.Marker({	    
             position: myLatlng,
@@ -32,7 +40,10 @@
         });
 
 google.maps.event.addListener(marker, 'click', function() {
-				      window.location = '<%= project_url(marker[:project]) %>';
+
+				      infowindow.open(map,marker);
+
+		//		      window.location = '<%= project_url(marker[:project]) %>';
   });
     <% end %>
 </script>
