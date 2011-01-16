@@ -23,8 +23,13 @@
             position: myLatlng,
 	    map: map,
 	    past: '<%= marker[:past] %>',
-	    future: '<%= marker[:future] %>'
-
+	    future: '<%= marker[:future] %>',
+	    <% if marker[:past] %>
+	       icon: '/images/maps/past.png',
+	    <% end %>
+	    <% if marker[:future] %>
+	       icon: '/images/maps/future.png',
+	    <% end %>
         });
 
 google.maps.event.addListener(marker, 'click', function() {
