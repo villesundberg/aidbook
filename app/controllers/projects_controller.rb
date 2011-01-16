@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 
-    @projects = Project.all.excludes(:map_point => nil).limit(100)
+    @projects = @project.nearest
     @project_markers = @projects.map { |pro| pro.to_marker }
 
     @map_center = @project.map_point.join(", ")

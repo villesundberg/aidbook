@@ -5,7 +5,7 @@ defaults: &defaults
   #     port: 27018
   #   - host: slave2.local
   #     port: 27019
-#  autocreate_indexes: true
+  autocreate_indexes: true
   persist_in_safe_mode: true
  
 development:

@@ -42,9 +42,12 @@ class Project
         :future => self.future?
       }
   end
+
+  def nearest
+    Project.where(:map_point.near => ([ map_point ] + [ 10 ]).flatten )
+  end
   
   index [[ :map_point, Mongo::GEO2D ]]
-
   
   private
 
