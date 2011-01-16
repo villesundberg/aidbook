@@ -1,0 +1,37 @@
+<script type="text/javascript">
+   var latlng = new google.maps.LatLng(0, 0);
+   var myOptions = {
+      zoom: 5,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+	<% if @map_center %>
+	map.setCenter( new google.maps.LatLng(<%= @map_center %>));
+	<% end %>
+  var myLatlng;
+  var marker;
+
+    <% @project_markers.each do |marker| %>
+
+      myLatlng = new google.maps.LatLng(<%= marker[:latlng] %>);
+      marker = new google.maps.Marker({	    
+            position: myLatlng,
+	    map: map,
+	    past: '<%= marker[:past] %>',
+	    future: '<%= marker[:future] %>',
+	    <% if marker[:past] %>
+	       icon: '/images/maps/past.png',
+	    <% end %>
+	    <% if marker[:future] %>
+	       icon: '/images/maps/future.png',
+	    <% end %>
+        });
+
+google.maps.event.addListener(marker, 'click', function() {
+				      window.location = '<%= project_url(marker[:project]) %>';
+  });
+    <% end %>
+</script>
