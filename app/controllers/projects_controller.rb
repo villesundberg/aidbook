@@ -30,6 +30,8 @@ class ProjectsController < ApplicationController
 
     @projects = Project.all.excludes(:map_point => nil).limit(100)
     @project_markers = @projects.map { |pro| pro.to_marker }
+
+    @map_center = @project.map_point.join(", ")
     
     respond_to do |format|
       format.html # show.html.erb
