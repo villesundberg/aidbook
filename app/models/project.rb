@@ -44,7 +44,7 @@ class Project
   end
 
   def nearest
-    Project.where(:map_point.near => map_point).limit(10)
+    Project.all.limit(100)
   end
   
   index [[ :map_point, Mongo::GEO2D ]]
