@@ -16,9 +16,12 @@ class ProjectsController < ApplicationController
     @project_markers = @projects.map do |pro|
       { 
         :latlng => pro.map_point.andand.map {|mp| mp.to_s}.join(", "),   
-        :project => pro
+        :project => pro,
+        :past => pro.past?,
+        :future => pro.future?
       }
     end
+    
     ap @project_markers
     
     respond_to do |format|

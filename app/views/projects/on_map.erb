@@ -21,7 +21,10 @@
       myLatlng = new google.maps.LatLng(<%= marker[:latlng] %>);
       marker = new google.maps.Marker({	    
             position: myLatlng,
-	    map: map
+	    map: map,
+	    past: '<%= marker[:past] %>',
+	    future: '<%= marker[:future] %>'
+
         });
 
 google.maps.event.addListener(marker, 'click', function() {
