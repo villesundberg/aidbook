@@ -14,6 +14,8 @@ gem "awesome_print"
 
 gem "haml"
 
+gem "andand"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -11,7 +11,8 @@ class ProjectsController < ApplicationController
   end
   
   def on_map
-    @projects = Project.all
+    @projects = Project.all.limit(100)
+    
     i = 0
     @project_markers = @projects.map do |pro| 
       [ pro.map_point.map {|mp| mp.to_s}.join(", "),   
