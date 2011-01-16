@@ -50,8 +50,8 @@ class Project
 
   def self.demo
 
-    # GH,CI,TG,BF,BJ,LR,NG,GN
-    Project.all.in(:country_code => ["GH", "CI"]).excludes(:map_point => nil)
+    # 
+    Project.all.in(:country_code => ["GH", "CI", "TG", "BF", "BJ", "LR", "NG", "GN"]).excludes(:map_point => nil)
   end
 
   
