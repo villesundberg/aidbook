@@ -5,6 +5,8 @@ class Project
 
   field :beginning, :type => Date
   field :ending, :type => Date
+
+  field :description, :type => String
   
   references_many :roles
 
@@ -23,6 +25,21 @@ class Project
   def future?
     beginning && beginning > Date.today
   end
+
+  def readable_beginning
+    format(beginning)
+  end
+
+  def readable_ending
+    format(ending)
+  end
   
   index [[ :map_point, Mongo::GEO2D ]]
+
+  
+  private
+
+  def format(date)
+    date.andand.strftime("%B %Y")
+  end
 end

@@ -24,9 +24,10 @@
     #header-wrap
       #header
         %a{:name => "top"}
-        %img{:alt => "slogan", :src => "images/aidbook/aidbook.png", :style => "margin:10px; background:transparent; border:0 none;"}/
-        / <h1 id="logo-text"><a href="index.html" title="">aid-Book</a></h1>
-        %img{:alt => "slogan", :src => "images/aidbook/slogan.png", :style => "margin:10px; background:transparent; border:0 none;"}/
+        %a#logo-link{:href => "index.html"}/
+        %h1 Aidbook
+        #slogan
+          %span Sharing the good we do
         /
           <div  id="nav">
           <ul>
@@ -63,13 +64,146 @@
         / /header
     / content-outer
     #content-wrap.clear
+      #content
+        / main
+        #main
+          .post
+            /
+              <div class="right">
+              
+              </div>
+            .left
+              .title-container
+                %img{:alt => "Project Clean Water", :height => "80", :src => "http://t2.gstatic.com/images?q=tbn:ANd9GcSItEA61dYLvx8qH3NYQXWCnApW632JzOKG7OcTZNcNzqi5Xg2V", :style => "float: left", :width => "80"}/
+                .page-label Project
+                %h3.project-title No Violence Against Women
+              %img{:alt => "map", :src => "images/map.jpg", :style => "padding:3px;", :width => "459"}/
+              .project-info
+                %h4
+                  %a{:href => "#"} 6 people
+                .people.clearfloats
+                  .person.important
+                    %a{:href => "#"}
+                      %img.user-avatar{:alt => "Jin Jiang", :height => "48", :src => "images/guykawasaki.jpg", :width => "48"}/
+                    .user-info
+                      %a.name{:href => "#"} Jin Jiang
+                      %br/
+                      Project Coordinator
+                  .person
+                    %a{:href => "#"}
+                      %img.user-avatar{:alt => "Jin Jiang", :height => "48", :src => "images/guykawasaki.jpg", :width => "48"}/
+                    .user-info
+                      %a.name{:href => "#"} Mila Mtongo
+                      %br/
+                      Volunteer
+                / .people
+                %a.people-link{:href => "#"} All people &rarr;
+                %h4 Description
+                Orphan Care Ghana is set up to Support Health Care and life saving initiatives in Ghana, ease access to medical care by equipping hospitals and clinics, help those whose lives are endangered, prevent diseases and educate the public on health issues.
+                %h4 Time
+                %p
+                  Started in August 2008
+                  %br/
+                  Ends in February 2012
+                %h4 Contact Details
+                %dl
+                  %dt Office
+                  %dd
+                    Hudson Road 3518 Kumasi, Ghana
+                  %dt Phone
+                  %dd +233 40 5901695
+                  %dt Website
+                  %dd
+                    %a{:href => "#"} http://www.orphancareghana.org/
+        / /main
+        #sidebar
+          .tweet
+            .tweet-image
+              %a{:href => "#"}
+                %img{:alt => "Jin Jiang", :height => "48", :src => "images/guykawasaki.jpg", :width => "48"}/
+            / #tweet-image
+            .tweet-content
+              .tweet-row
+                %span.tweet-name
+                  %a{:href => "#"} Jin Jiang
+              .tweet-row
+                %span.tweet-text Wow the school project was approved! Wow!
+              .tweet-row
+                %span.tweet-time 50 minutes ago
+            / #tweet-content
+          / #tweet-item
+          .tweet
+            .tweet-image
+              %a{:href => "#"}
+                %img{:alt => "Jin Jiang", :height => "48", :src => "images/guykawasaki.jpg", :width => "48"}/
+            / #tweet-image
+            .tweet-content
+              .tweet-row
+                %span.tweet-name
+                  %a{:href => "#"} Jin Jiang
+              .tweet-row
+                %span.tweet-text Wow the school project was approved! Wow!
+              .tweet-row
+                %span.tweet-time 50 minutes ago
+            / #tweet-content
+          / #tweet-item
+          .tweet
+            .tweet-image
+              %a{:href => "#"}
+                %img{:alt => "Jin Jiang", :height => "48", :src => "images/guykawasaki.jpg", :width => "48"}/
+            / #tweet-image
+            .tweet-content
+              .tweet-row
+                %span.tweet-name
+                  %a{:href => "#"} Jin Jiang
+              .tweet-row
+                %span.tweet-text Wow the school project was approved! Wow!
+              .tweet-row
+                %span.tweet-time 50 minutes ago
+            / #tweet-content
+          / #tweet-item
+          .tweet
+            .tweet-image
+              %a{:href => "#"}
+                %img{:alt => "Jin Jiang", :height => "48", :src => "images/guykawasaki.jpg", :width => "48"}/
+            / #tweet-image
+            .tweet-content
+              .tweet-row
+                %span.tweet-name
+                  %a{:href => "#"} Jin Jiang
+              .tweet-row
+                %span.tweet-text Wow the school project was approved! Wow!
+              .tweet-row
+                %span.tweet-time 50 minutes ago
+            / #tweet-content
+          / #tweet-item
+          .tweet
+            .tweet-image
+              %a{:href => "#"}
+                %img{:alt => "Jin Jiang", :height => "48", :src => "images/guykawasaki.jpg", :width => "48"}/
+            / #tweet-image
+            .tweet-content
+              .tweet-row
+                %span.tweet-name
+                  %a{:href => "#"} Jin Jiang
+              .tweet-row
+                %span.tweet-text Wow the school project was approved! Wow!
+              .tweet-row
+                %span.tweet-time 50 minutes ago
+            / #tweet-content
+          / #tweet-item
       / sidebar
       / content
     / footer-outer
-    #footer-outer.clear
-      #footer-wrap
-        .msg_list
-          %p.msg_head Who we are....
-          .msg_body
-            We are team aidBook and we want you to participate in helping the world become a better place by using our application :)
+    /
+      <div id="footer-outer" class="clear">
+      <div id="footer-wrap">
+      <div class="msg_list">
+      <p class="msg_head">Who we are.... </p>
+      <div class="msg_body">
+      We are team aidBook and we want you to participate in helping the world become a better place by using our application :)
+      </div>
+      </div>
+      </div>
+      </div>
     / footer-bottom

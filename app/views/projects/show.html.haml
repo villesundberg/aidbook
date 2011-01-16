@@ -7,93 +7,59 @@
         
         </div>
       .left
-        #map_canvas{:style => "width: 400px"}
-        .about-me
-          %h3= @project.name
+        .title-container
+          %img{:alt => "Project Clean Water", :height => "80", :src => "http://t2.gstatic.com/images?q=tbn:ANd9GcSItEA61dYLvx8qH3NYQXWCnApW632JzOKG7OcTZNcNzqi5Xg2V", :style => "float: left", :width => "80"}/
+          .page-label Project
+          %h3.project-title= @project.name
+        #map_canvas{:style => "height: 319px; width: 459px; padding: 3px; border: 1px solid black"}
+        .project-info
+          %h4
+            %a{:href => "#"}= "#{@project.people.count} people"
+          .people.clearfloats
+            - for person in @project.people[0..2]
+              .person
+                %a{:href => "#"}
+                  %img.user-avatar{:alt => "Jin Jiang", :height => "48", :src => "/images/guykawasaki.jpg", :width => "48"}/
+                .user-info
+                  %a.name{:href => "#"}= person.name
+                  %br/
+                  = person.title_in(@project)
+          / .people
+          %a.people-link{:href => "#"} All people &rarr;
+          %h4 Description
+          = @project.description
+          %h4 Time
           %p
-            %a{:href => "index.html"}
-              %img.float-left{:alt => "firefox", :height => "40", :src => "images/gravatar.jpg", :width => "40"}/
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
-            Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
-            posuere nunc justo tempus leo
-            %a{:href => "index.html"} Learn more...
+            = "Start in #{@project.readable_beginning}"
+            %br
+            = "End in #{@project.readable_ending}"
   / /main
   #sidebar
-    .project
-      %ul
-        - for status in @project.feed
-          %li= status.status
-
-        %li
-          %a{:href => "http://www.dreamtemplate.com", :title => "Website Templates"}
-            DreamTemplate
-            %br/
-            %span Over 6,000+ Premium Web Templates
-        %li
-          %a{:href => "http://www.dreamtemplate.com", :title => "Website Templates"}
-            DreamTemplate
-            %br/
-            %span Over 6,000+ Premium Web Templates
-        %li
-          %a{:href => "http://www.themelayouts.com", :title => "WordPress Themes"}
-            ThemeLayouts
-            %br/
-            %span Premium WordPress &amp; Joomla Themes
-        %li
-          %a{:href => "http://www.imhosted.com", :title => "Website Hosting"}
-            ImHosted.com
-            %br/
-            %span Affordable Web Hosting Provider
-        %li
-          %a{:href => "http://www.dreamstock.com", :title => "Stock Photos"}
-            DreamStock
-            %br/
-            %span Download Amazing Stock Photos
-        %li
-          %a{:href => "http://www.evrsoft.com", :title => "Website Builder"}
-            Evrsoft
-            %br/
-            %span Website Builder Software &amp; Tools
-        %li
-          %a{:href => "http://www.webhostingwp.com", :title => "Web Hosting"}
-            Web Hosting
-            %br/
-            %span Top 10 Hosting Reviews
-
-
-%p#notice= notice
-
-%p
-  %b 
-    Name:
-  = @project.name
-
-%h2 People
-
-%ul
-  - for person in @project.people
-    %li
-      = link_to person.name, person
-
-%h2 Feed
-%ul
-  - for status in @project.feed
-    %li
-      = link_to status.status, status
-
-= link_to 'Edit', edit_project_path(@project) 
-|
-\#{link_to 'Back', projects_path}
-
-
-
+    - for status in @project.feed
+      .tweet
+        .tweet-image
+          %a{:href => "#"}
+            %img{:alt => "Jin Jiang", :height => "48", :src => "/images/guykawasaki.jpg", :width => "48"}/
+        / #tweet-image
+        .tweet-content
+          .tweet-row
+            %span.tweet-name
+              %a{:href => "#"}= status.person.name
+          .tweet-row
+            %span.tweet-text= status.status
+          .tweet-row
+            %span.tweet-time= "#{rand(50)} minutes ago"
+        / #tweet-content
+  
 :javascript
-    var latlng = new google.maps.LatLng(-27.587724593115762, 151.96510595703126);
+    var latlng = new google.maps.LatLng(0, 0);
     var myOptions = {
-      zoom: 8,
+      zoom: 2,
       center: latlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"),
         myOptions);
- 
+
+  var myLatlng;
+  var marker;

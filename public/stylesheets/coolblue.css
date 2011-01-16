@@ -11,7 +11,7 @@
     G E N E R A L
 --------------------------------------------------------------------------------- */
 body {
-	font: 12px/170% Arial, Arial, Helvetica, sans-serif;
+	font: 12px/170% Arial, Helvetica, sans-serif;
 	color: #777;
 	margin: 0; padding: 0;
 	/*background: url(../images/bg.jpg); */
@@ -72,25 +72,31 @@ h1, h2, h3, h4 {
 	margin: 8px 25px;
 }
 
-#logo-link {
-  width: 191px;
+a#logo-link {
+  width: 254px;
   float: left;	
-}
-#logo-link h1 {
-  text-indent: -5000px;
   background-image: url(../images/aidbook/aidbook.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+a#logo-link:hover {
+  background-position: 0 -66px;
+}
+
+a#logo-link h1 {
+  text-indent: -5000px;
   padding: 0; margin: 0;
   width: 191px; height: 66px;
-  background-position: 22px 22px;
-  background-repeat: no-repeat;
   color: white;
 }
+
 #slogan {
   float: left;
   background-image: url(../images/aidbook/slogan.png);
   background-repeat: no-repeat;
-  background-position: 0 28px;
+  background-position: 0 29px;
   width: 171px; height: 66px;
+  margin-left: 10px;
 }
 #slogan span {
   display: block;
@@ -103,7 +109,7 @@ h2 { font-size: 2.8em; font-weight: normal; }
 h3 { font-size: 2.2em; font-weight: normal; letter-spacing: -0.5px; padding-top: 15px; }
 
 .page-label { text-transform: uppercase; color: #999; margin: 0 0 0 100px; font-size: 11px; line-height: 11px; letter-spacing: 1px; }
-h3.project-title { font-family: Georgia, "Times New Roman", Times, serif; margin: 0 0 0 100px; padding-top: 0; }
+h3.project-title { font-family: Georgia, "Times New Roman", Times, serif; margin: 10px 0 0 100px; padding-top: 0; }
 
 h4 { margin: 12px 0 0 0; padding: 0; font-size: 12px; font-weight: bold; color:  }
 
@@ -123,10 +129,13 @@ ul { list-style: disc; }
 ol { list-style: decimal; }
 
 dt {
+  float: left;
+  width: 60px;
+  overflow: hidden;
   color: #999999;	
 }
 dd {
-  padding-left: 20px;
+  margin-left: 70px;
 }
 
 p, dl { margin: 0; }
@@ -282,6 +291,35 @@ input.button {
 	/* change the values of top and left to adjust the position */
 	top: 142px; left: 30px;
 }
+
+/* self clearing rules */
+	   .clearfloats:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+	   .clearfloats { display: inline-block; _height: 1%; }
+	   /* Hides from IE-mac \*/
+       .clearfloats { display: block; }
+       /* End hide from IE-mac */
+
+.people {
+  margin: 10px 0 10px 0;	
+}
+.person {
+  float: left;
+  width: 240px;	
+}
+.person.important {
+  font-weight: bold;	
+}
+.user-avatar {
+  float: left;
+}
+.user-info {
+  margin-left: 58px;	
+}
+.people-link {
+  clear: left;	
+  margin-top: 10px;
+}
+
 
 /* RSS */
 #header #logintable

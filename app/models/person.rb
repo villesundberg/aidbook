@@ -12,7 +12,11 @@ class Person
   def projects
     roles.map{ |r| r.project }
   end
-  
+
+  def title_in(project)
+    roles.detect{ |r| r.project == project }.andand.title
+  end
+
   field :last_location, :type => Array  # [Y, X]
 
   index [[ :last_location, Mongo::GEO2D ]]

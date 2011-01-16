@@ -35,8 +35,21 @@ tw = Status.create(:status => "Toowoomba kaboom!", :time => DateTime.now )
 ilona.statuses << tw
 ilona.save
 
-markus.projects << drying
+r1 = Role.create(:title => "Project manager")
+
+drying.roles << r1
+markus.roles << r1
+
+r2 = Role.create(:title => "Project coordinator")
+
+drying.roles << r2
+ilona.roles << r2
+
+
+
 markus.statuses << Status.create(:status => "Plenty of cover over Sydney rain!", :time => DateTime.now )
 markus.statuses << Status.create(:status => "Add some more!", :time => DateTime.now )
 markus.friends << ilona
 markus.save
+
+ilona.save
