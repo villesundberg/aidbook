@@ -11,17 +11,20 @@
     G E N E R A L
 --------------------------------------------------------------------------------- */
 body {
-	font: 12px/170% 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
+	font: 12px/170% Arial, Arial, Helvetica, sans-serif;
 	color: #777;
 	margin: 0; padding: 0;
 	/*background: url(../images/bg.jpg); */
 }
 /* links */
 a:link, a:visited {
-	text-decoration: none;
-	color: #FF409F;
+  color: #63a230;
+  text-decoration: none;
 }
-a:hover { color: #147DB6; }
+a:hover {
+  color: #83c250;
+  text-decoration: underline;
+}
 a:link.more, a:visited.more {
 	float: left;
 	margin-top: 20px;
@@ -53,7 +56,7 @@ font-weight:bold;
 .msg_body {
     position: absolute;
 	margin: 0; padding:  0 5px 0 0;
-	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	font-size: 11px;
 	line-height: 1.8em;
@@ -64,14 +67,52 @@ font-weight:bold;
 
 /* Headers */
 h1, h2, h3, h4 {
-	font: bold 1em/1.5em 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
+	font: bold 1em/1.5em;
 	color: #555;
 	margin: 8px 25px;
 }
+
+#logo-link {
+  width: 191px;
+  float: left;	
+}
+#logo-link h1 {
+  text-indent: -5000px;
+  background-image: url(../images/aidbook/aidbook.png);
+  padding: 0; margin: 0;
+  width: 191px; height: 66px;
+  background-position: 22px 22px;
+  background-repeat: no-repeat;
+  color: white;
+}
+#slogan {
+  float: left;
+  background-image: url(../images/aidbook/slogan.png);
+  background-repeat: no-repeat;
+  background-position: 0 28px;
+  width: 171px; height: 66px;
+}
+#slogan span {
+  display: block;
+  text-indent: -5000px;	
+  color: white;
+}
+
 h1 { font-size: 3.7em; font-weight: normal; letter-spacing: -2px; }
 h2 { font-size: 2.8em; font-weight: normal; }
 h3 { font-size: 2.2em; font-weight: normal; letter-spacing: -0.5px; padding-top: 15px; }
-h4 { font-size: 1.5em; }
+
+.page-label { text-transform: uppercase; color: #999; margin: 0 0 0 100px; font-size: 11px; line-height: 11px; letter-spacing: 1px; }
+h3.project-title { font-family: Georgia, "Times New Roman", Times, serif; margin: 0 0 0 100px; padding-top: 0; }
+
+h4 { margin: 12px 0 0 0; padding: 0; font-size: 12px; font-weight: bold; color:  }
+
+.title-container { height: 105px }
+
+/* links */
+
+a { color: #63a230; text-decoration: none; }
+a:hover { color: #83c250; text-decoration: underline; }
 
 /* lists */
 ul, ol {
@@ -82,17 +123,16 @@ ul { list-style: disc; }
 ol { list-style: decimal; }
 
 dt {
-  font-weight: bold;
-  color: #1980AF;	
+  color: #999999;	
 }
 dd {
   padding-left: 20px;
 }
 
-p, dl { margin: 10px 25px; }
+p, dl { margin: 0; }
 
 /* images */
-img {
+img.border {
    border: 1px solid #E2E4E7;
 	padding: 10px;
 }
@@ -176,7 +216,7 @@ input, select, textarea {
 	border-width: 1px;
 	border-style: solid;
   	border-color: #D4D4D4 #EBEBEB #EBEBEB #D4D4D4; 	
-	font: 11px 'Lucida Grande', Verdana, Helvetica, sans-serif;
+	font-size: 11px;
 }
 input:focus, select:focus, textarea:focus {
 	color: #19465D;
@@ -214,6 +254,7 @@ input.button {
   position: relative;
   margin: 0 auto;
   width: 1000px;
+  height: 66px;
 }
 
 #header h1#logo-text { margin: 0; padding: 0; }
@@ -231,7 +272,6 @@ input.button {
 #header p#slogan {
 	position: absolute;
 	margin: 0; padding:  0 5px 0 0;
-	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
 	font-weight: bold;
 	font-size: 11px;
 	line-height: 1.8em;
@@ -267,7 +307,7 @@ input.button {
  /* background: transparent url(../images/rss.gif) no-repeat left center;*/
   color: #fff;
   height: 30px;
-  font: bold 12px 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
+  font: bold 12px;
   margin: 0;
   padding: 10px 0 0 30px;
   display: block;
@@ -337,7 +377,7 @@ fieldset.search {
 	margin: 0;
 	padding: 0 15px 29px 15px;
 	color: #baa7a7;
-	font: bold 12px 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
+	font: bold 12px;
 }
 #header #nav ul li a:hover, 
 #header #nav ul li a:active {
@@ -371,21 +411,21 @@ fieldset.search {
 #main {
    float: left;
    margin: 0;
-   padding: 25px 0 0 0;
-   width: 780px;	/*width: 740px;*/
+   padding: 15px 0 0 0;
+   width: 477px;	/*width: 740px;*/
 }
 #sidebar 
 {
-    width:220px;
+    width: 490px;
 	/*width: 245px; */
 	float: right;
    margin: 0;
-   padding: 15px 0;
+   padding: 125px 0 0 0;
    font-size: .95em;
 }
 
 #main h2 {
-	font: bold 3.2em/1em 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
+	font: bold 3.2em/1em;
    color: #333;
 	letter-spacing: -2.0px;
 	margin-bottom: 0;
@@ -393,7 +433,7 @@ fieldset.search {
 }
 #main h2 a { color: #333; }
 #sidebar h3 {
-	font: bold 1.7em 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
+	font: bold 1.7em;
    letter-spacing: .2px;
 	margin-left: 10px;
    color: #333;
@@ -401,10 +441,36 @@ fieldset.search {
 #sidebar h3, #sidebar p {
 	margin-left: 10px;
 }
-#sidebar img { padding: 8px; }
 
 
 /* sidemenu */
+
+.tweet {
+  border-bottom: 1px #eeeeee solid;
+  padding: 10px 20px;	
+}
+
+.tweet-image {
+  float: left;	
+}
+.tweet-content {
+  margin-left: 58px;
+  min-height: 48px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.tweet-row {
+  margin-bottom: 2px;	
+}
+.tweet-name {
+  font-weight: bold;
+}
+.tweet-time {
+  font-size: 13px;	
+  color: #999999;
+}
+
 .sidemenu ul {
 	text-align: left;
 	margin: 10px 15px 10px 8px;
@@ -428,7 +494,6 @@ fieldset.search {
 }
 .sidemenu ul li a span {
 	color: #959595;
-	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
 	font-style: normal;
 	font-weight: normal;
 	text-transform: none;
@@ -510,7 +575,6 @@ fieldset.search {
 }
 .popular ul li span {
 	color: #888;
-	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
 	font-style: normal;
 	font-weight: normal;
 	text-transform: uppercase;
@@ -537,7 +601,7 @@ fieldset.search {
 #footer-wrap a:visited { color: #fff; }
 #footer-wrap a:hover { color: #99CCFF; }
 #footer-wrap h3 {
-   font: bold 1.7em 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
+   font: bold 1.7em;
 	letter-spacing: .2px;
    margin-bottom: 15px;
 	color: #fff;
@@ -647,7 +711,6 @@ ul.subscribe-stuff li img {
    font-size: .9em;
 	margin: 0 auto;
    padding-top: 10px;
-   font-family: 'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif;
 	font-size: .9em;
 	color: #C2DBE7;
    overflow: hidden;
@@ -679,7 +742,7 @@ ul.subscribe-stuff li img {
 .post {
    margin: 5px 0 20px 0;
    padding: 0 0 20px 0;
-   width: 740px;
+   width: 490px;
    overflow: hidden;
    border-bottom: 1px solid #eee;
 }
