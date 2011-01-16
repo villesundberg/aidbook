@@ -4,26 +4,25 @@
 <%= link_to 'New Project', new_project_path %>
 <script type="text/javascript">
 
-    var latlng = new google.maps.LatLng(-27.587724593115762, 151.96510595703126);
+    var latlng = new google.maps.LatLng(0, 0);
     var myOptions = {
-      zoom: 8,
+      zoom: 2,
       center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"),
         myOptions);
-    <% @project_markers.each do |latLng, title| %>
-      var myLatlng = new google.maps.LatLng(<%= latLng %>);
-      var marker = new google.maps.Marker({
-            position: myLatlng,
-            title: "<%= title %>"
-        });
-      marker.setMap(map);  
-    <% end %>
-    google.maps.event.addListener(map, 'click', function(event) {
-/*      document.getElementById("project_name").value = event.latLng.toString(); */
-    });
 
+	var myLatlng;
+	var marker;
+    <% @project_markers.each do |latLng, title| %>
+      myLatlng = new google.maps.LatLng(<%= latLng %>);
+      marker = new google.maps.Marker({
+            position: myLatlng,
+	    map: map
+        });
+    <% end %>
 </script>
 
 <div id="map_canvas" style="width:80%; height:80%"></div>
