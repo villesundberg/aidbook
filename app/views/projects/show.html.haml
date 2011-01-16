@@ -27,7 +27,7 @@
           / .people
           %a.people-link{:href => "#"} All people &rarr;
           %h4 Description
-          = @project.description
+          = @project.description.html_safe
           %h4 Time
           %p
             = "Start in #{@project.readable_beginning}"
