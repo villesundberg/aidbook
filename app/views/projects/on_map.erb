@@ -16,12 +16,17 @@
 
 	var myLatlng;
 	var marker;
-    <% @project_markers.each do |latLng, title| %>
-      myLatlng = new google.maps.LatLng(<%= latLng %>);
-      marker = new google.maps.Marker({
+    <% @project_markers.each do |marker| %>
+
+      myLatlng = new google.maps.LatLng(<%= marker[:latlng] %>);
+      marker = new google.maps.Marker({	    
             position: myLatlng,
 	    map: map
         });
+
+google.maps.event.addListener(marker, 'click', function() {
+				      window.location = '<%= project_url(marker[:project]) %>';
+  });
     <% end %>
 </script>
 
