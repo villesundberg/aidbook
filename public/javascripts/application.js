@@ -8,4 +8,8 @@
         $(".msg_head").click(function () {
             $(this).next(".msg_body").slideToggle(600);
         });
+
+
+			  $("#infobox #flash").slideDown();
+
     });

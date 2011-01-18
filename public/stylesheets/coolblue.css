@@ -10,11 +10,16 @@
 /* ------------------------------------------------------------------------------
     G E N E R A L
 --------------------------------------------------------------------------------- */
+html {
+    height: 100%;
+}
+
 body {
 	font: 12px/170% Arial, Helvetica, sans-serif;
 	color: #777;
 	margin: 0; padding: 0;
 	/*background: url(../images/bg.jpg); */
+	height: 100%;
 }
 /* links */
 a:link, a:visited {
@@ -218,7 +223,7 @@ label {
 	font-weight: bold;
 	color: #666666;
 }
-input, select, textarea {
+input[type=text], select, textarea {
 	margin: 5px 0;
 	padding: 7px 6px;
 	color: #6A6969;
@@ -1086,3 +1091,80 @@ ul.archive li .post-details a:visited {
 	height:0;
 	content: " ";
 }  
+
+#infobox-background {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    opacity: 0.3;
+}
+
+#infobox-wrapper {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#infobox {
+    width: 800px;
+    margin: auto;
+    margin-top: 10%;
+    height: 220px;
+    border: 1px solid gray;
+
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#baeb00', endColorstr='#7bc100'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#baeb00), to(#7bc100)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #baeb00,  #7bc100); /* for firefox 3.6+ */
+
+ }
+
+#infobox img {
+    float: left;
+    margin: 70px 0 0 120px;
+}
+
+form.new_subscription {
+    margin: 70px 10px 0 0;
+    background: none;
+    border: none;
+    float: left;
+    width: 300px;
+}
+
+#infobox #flash {
+    clear: both;
+    text-align: center;
+    font-size: larger;
+    color: black;
+    font-weight: bold;
+}
+
+#subscription_submit {
+    margin: 5px 0;
+    padding: 5px 6px;
+}
+
+.subscriptions {
+    width: 600px;
+    margin: auto;
+    border: 1px solid black;
+    padding: 50px;
+    background-color: white;
+}
+
+.subscriptions h1 {
+    margin-bottom: 1em;
+}
+
+.subscriptions p {
+    margin: 5px;
+}

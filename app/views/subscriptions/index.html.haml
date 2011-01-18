@@ -1,0 +1,7 @@
+
+.subscriptions
+  %h1 Subscribers
+  %p
+    %strong= "Total #{@subscriptions.count}"
+  - for s in @subscriptions
+    %p= s.email

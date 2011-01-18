@@ -1,5 +1,26 @@
-<div id="map_canvas" style="width: 100%; height: 450px; background: green"></div>
+<div id="map_canvas" style="width: 100%; height: 100%; background: green"></div>
 
+<div id="infobox-background"></div>
+
+<div id="infobox-wrapper">
+<div id="infobox">
+     <img src="/images/aidbook/aidbook-transparent.png" />
+
+     <%= form_for Subscription.new do |f| %>
+     <%= f.text_field :email, :placeholder => "Email" %>
+     <%= f.submit "Subscribe" %> 
+     <% end %>
+
+
+<div id="flash">
+     <%= flash[:notice] %>
+</div>
+
+<div style="clear: both">
+</div>
+
+</div>
+</div>
 
 <%= link_to 'New Project', new_project_path %>
 <script type="text/javascript">
@@ -8,7 +29,8 @@
    var myOptions = {
       zoom: 3,
       center: latlng,
-      mapTypeId: google.maps.MapTypeId.TERRAIN
+      mapTypeId: google.maps.MapTypeId.TERRAIN,
+      disableDefaultUI: true
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"),
         myOptions);

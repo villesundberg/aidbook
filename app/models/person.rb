@@ -37,4 +37,10 @@ class Role
   referenced_in :project
 end
 
+class Subscription
+  include Mongoid::Document
+  include Mongoid::Search
+  field :email, :type => String
 
+  search_in :email
+end

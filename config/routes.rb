@@ -14,7 +14,8 @@ AidGarage::Application.routes.draw do
   end
 
   resources :statuses
-
+  resources :subscriptions
+  
   match "/", :to => "projects#on_map"
 
   # The priority is based upon order of creation:
