@@ -1,39 +1,32 @@
 ﻿#pushpininfo
 {
-    width:220px;
-    font:10px;
+    width: 220px;
+    font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 #projectinfoImage
 { 
-    float:left;
-    margin:1px;    
+    float: left;  
 }
 #projectDescription
 {
-     padding:5px;
-     margin-left:45px;
+    margin-left: 50px;
+	min-height: 40px;
 }
-#projectDescription h2
-{
-    font-size:12px;
-    color: #63a230;
-    text-decoration: none;
+#projectDescription p {
+    margin: 0 0 5px 0; padding: 0;	
+}
+#projectDescription h4 {
+    margin: 0 0 5px 0;	
 }
 #projectDescription a 
 {
-    font-size:12px;
     color: #63a230;
     text-decoration: none;
     font-weight:bold;
 }
-#projectDescription p
+.projectkeywords, .projectdate
 {
-    font-size:11px;
-  
-}
-.projectkeywords
-{
-     font-size:10px;    
-    text-decoration: none;
-     font-family:Lucida Sans;
+     font-size:12px;
+	 color: #888888;
 }

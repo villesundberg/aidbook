@@ -7,6 +7,7 @@ class Project
   field :ending, :type => Date
 
   field :description, :type => String
+  field :country_code, :type => String
   
   references_many :roles
 
@@ -15,7 +16,7 @@ class Project
   end
   
   def feed
-    people.map{|p| p.statuses}.flatten
+    Status.all
   end
 
   def past?
@@ -44,8 +45,15 @@ class Project
   end
 
   def nearest
-    Project.all.limit(100)
+    Project.demo
   end
+
+  def self.demo
+
+    # 
+    Project.all.in(:country_code => ["GH", "CI", "TG", "BF", "BJ", "LR", "NG", "GN"]).excludes(:map_point => nil)
+  end
+
   
   index [[ :map_point, Mongo::GEO2D ]]
   

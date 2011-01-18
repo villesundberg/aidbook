@@ -37,7 +37,7 @@
               = "End in #{@project.readable_ending}"
   / /main
   #sidebar
-    - for status in @project.feed
+    - for status in @project.feed[3..-1]
       .tweet
         .tweet-image
           %a{:href => "#"}
@@ -46,7 +46,7 @@
         .tweet-content
           .tweet-row
             %span.tweet-name
-              %a{:href => "#"}= status.person.name
+              %a{:href => "#"}= status.person.andand.name
           .tweet-row
             %span.tweet-text= status.status
           .tweet-row
